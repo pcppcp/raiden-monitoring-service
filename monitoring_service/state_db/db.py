@@ -44,8 +44,8 @@ class StateDB:
         ret = []
         for x in c.fetchall():
             x['channel_id'] = int(x['channel_id'], 16)
-            x['transferred_amount'] = int(x['transferred_amount'], 16)
-            x['nonce'] = int(x['nonce'], 16)
+#            x['transferred_amount'] = int(x['transferred_amount'])
+#            x['nonce'] = int(x['nonce'])
             ret.append(x)
 
         return {
@@ -60,8 +60,8 @@ class StateDB:
             balance_proof['contract_address'],
             balance_proof['participant1'],
             balance_proof['participant2'],
-            hex(balance_proof['nonce']),
-            hex(balance_proof['transferred_amount']),
+            str(balance_proof['nonce']),
+            str(balance_proof['transferred_amount']),
             balance_proof['extra_hash'],
             balance_proof['signature'],
             balance_proof['timestamp'],
